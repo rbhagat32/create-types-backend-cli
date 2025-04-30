@@ -17,11 +17,11 @@ npm install -g create-types-backend@latest
 ## 📦 Features
 
 ✅ **Generates a well-structured Express-TypeScript backend**  
-✅ **Includes Express.js, Typescript and essential configurations**  
-✅ **Sets up TypeScript, @ import alias and tsx for better development experience**  
-✅ **Optionally adds MongoDB, CORS, and Authentication support**  
-✅ **Creates a ready-to-use folder structure**  
 ✅ **Supports automatic setup using `-y` flag**
+✅ **Includes Express.js, Typescript, DotEnv and essential configurations**  
+✅ **Sets up tsx for hot-reloading while development**  
+✅ **Resolves import alias to @**  
+✅ **Optionally adds MongoDB, CORS, Authentication and Multer support**
 
 ## 🚀 Usage
 
@@ -43,23 +43,12 @@ npx create-types-backend@latest -y
 npx create-types-backend@latest myapp
 ```
 
-4️⃣ Custom Setup with Prompts
-
-```sh
-You will be prompted for:
-
--   Project name:
--   Whether to include CORS:
--   Whether to use MongoDB as database:
--   Whether to setup Authentication using JWT, bcrypt, cookie-parser:
-```
-
-5️⃣ Starting the Development Server
+4️⃣ Starting the Development Server
 
 ```sh
 Just follow these 3 steps:
 -   cd into the newly created backend directory
--   add your MONGODB_URI in .env file
+-   add your MONGODB_URI in .env file (if using MongoDB)
 -   npm run dev
 ```
 
