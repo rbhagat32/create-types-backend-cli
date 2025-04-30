@@ -1,10 +1,7 @@
 import fs from "fs";
-import chalk from "chalk";
 import { dotenvContent, dotenvExampleContent } from "@/content/dotenv.js";
 
 export const createDotenv = (answers: Answers) => {
-  console.log(chalk.green("📕 Creating .env..."));
-
   if (answers.useMongo) {
     dotenvContent.push("MONGODB_URI=");
     dotenvExampleContent.push("MONGODB_URI=");

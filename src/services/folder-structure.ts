@@ -1,9 +1,6 @@
-import chalk from "chalk";
 import fs from "fs";
 
 export const createFolderStructure = () => {
-  console.log(chalk.green("📂 Creating folder structure..."));
-
   const folders = [
     "src/config",
     "src/constants",
