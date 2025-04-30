@@ -1,0 +1,45 @@
+{
+  "name": "create-types-backend",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "create-types-backend": "./dist/index.js"
+  },
+  "scripts": {
+    "clean": "rimraf dist && rimraf node_modules && rimraf package-lock.json",
+    "build": "rimraf dist && tsc"
+  },
+  "keywords": [
+    "typescript",
+    "express",
+    "backend",
+    "cli",
+    "nodejs",
+    "api",
+    "mongoose",
+    "automation",
+    "server"
+  ],
+  "author": "Raghav Bhagat",
+  "license": "ISC",
+  "description": "A CLI tool to quickly generate an Express.js backend with TypeScript, MongoDB, and essential configurations.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rbhagat32/create-types-backend.git"
+  },
+  "homepage": "https://github.com/rbhagat32/create-types-backend#readme",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "clsx": "^2.1.1",
+    "inquirer": "^12.5.0",
+    "tailwind-merge": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "rimraf": "^6.0.1"
+  }
+}

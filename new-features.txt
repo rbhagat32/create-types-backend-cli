@@ -1,0 +1,10 @@
+1) if project name is . -> package.json should have some name other than .
+2) install @types/express as dev deps
+3) multer (optional)
+4) cloudinary (optional)
+5) docker (optional)
+6) modify import alias to @ (optional)
+7) morgan for logging (optional)
+8) eslint (optional)
+9) error handler (optional)
+10) setup app.get("*") for wrong routes
