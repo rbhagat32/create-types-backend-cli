@@ -2,9 +2,9 @@ import chalk from "chalk";
 
 export const validateDirname = (name: string): string => {
   if (!name) return "";
-  let trimmed = name.trim();
+  if (name === ".") return name;
 
-  if (trimmed === ".") return trimmed;
+  let trimmed = name.trim();
 
   // Replace all whitespace with hyphens
   trimmed = trimmed.replace(" ", "-");

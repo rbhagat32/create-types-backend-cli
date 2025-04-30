@@ -11,14 +11,14 @@ You can directly run the CLI (using **npx**) or install globally (using **npm in
 npx create-types-backend@latest
 
 # OR Install globally (optional)
-npm install -g create-types-backend
+npm install -g create-types-backend@latest
 ```
 
 ## 📦 Features
 
-✅ **Generates a structured TypeScript backend**  
+✅ **Generates a well-structured Express-TypeScript backend**  
 ✅ **Includes Express.js, Typescript and essential configurations**  
-✅ **Configures TypeScript, Nodemon, and Concurrently for development**  
+✅ **Sets up TypeScript, Nodemon, and Concurrently for development**  
 ✅ **Optionally adds MongoDB, CORS, and Authentication support**  
 ✅ **Creates a ready-to-use folder structure**  
 ✅ **Supports automatic setup using `-y` flag**
@@ -48,10 +48,10 @@ npx create-types-backend@latest myapp
 ```sh
 You will be prompted for:
 
--   Project name
--   Whether to include CORS
--   Whether to use MongoDB as database
--   Whether to setup Authentication (using JWT, bcrypt, cookie-parser)
+-   Project name:
+-   Whether to include CORS:
+-   Whether to use MongoDB as database:
+-   Whether to setup Authentication using JWT, bcrypt, cookie-parser:
 ```
 
 5️⃣ Starting the Development Server
@@ -107,3 +107,4 @@ This project is **open-source** and available under the **ISC License**.
 **Raghav Bhagat**  
 🔗 GitHub: _[https://github.com/rbhagat32]_  
 🔗 LinkedIn: _[https://www.linkedin.com/in/rbhagat32]_
+🔗 NPM: _[https://www.npmjs.com/~raghavbhagat32]_
