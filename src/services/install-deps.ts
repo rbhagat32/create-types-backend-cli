@@ -12,7 +12,7 @@ export const installDependencies = (answers: Answers) => {
   if (answers.useAuth)
     dependencies.push("jsonwebtoken", "cookie-parser", "bcrypt");
 
-  execSync(`npm i ${dependencies.join(" ")}`, { stdio: "ignore" });
+  execSync(`npm install ${dependencies.join(" ")}`, { stdio: "ignore" });
 };
 
 export const installDevDependencies = (answers: Answers) => {
@@ -35,5 +35,5 @@ export const installDevDependencies = (answers: Answers) => {
       "@types/bcrypt"
     );
 
-  execSync(`npm i -D ${devDependencies.join(" ")}`);
+  execSync(`npm install -D ${devDependencies.join(" ")}`);
 };

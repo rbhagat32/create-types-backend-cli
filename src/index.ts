@@ -10,8 +10,8 @@ import { createGitIgnore } from "./services/git-ignore.js";
 import {
   installDependencies,
   installDevDependencies,
-} from "./services/deps.js";
-import { checkDirname } from "./utils/checkDirname.js";
+} from "./services/install-deps.js";
+import { validateDirname } from "./utils/validateDirname.js";
 import { createFolderStructure } from "./services/folder-structure.js";
 import { createDotenv } from "./services/dotenv.js";
 import { dbContent } from "./content/db.js";
@@ -19,12 +19,14 @@ import { appContent } from "./content/app.js";
 
 async function main() {
   console.log(
-    chalk.bold.blue("🚀 Welcome to TypeScript Express Backend CLI !")
+    chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !")
   );
 
   // Get the project name from command-line argument
-  const projectNameArg =
+  let projectNameArg =
     process.argv[2] !== "-y" ? process.argv[2] : process.argv[3];
+
+  projectNameArg = validateDirname(projectNameArg);
 
   // Check for -y flag (auto mode)
   const autoMode = process.argv.includes("-y");
@@ -37,11 +39,7 @@ async function main() {
     );
 
     answers = {
-      projectName:
-        (!checkDirname(projectNameArg) && "backend") ||
-        (projectNameArg === "." && "backend") ||
-        projectNameArg ||
-        "backend",
+      projectName: projectNameArg,
       useCors: true,
       useMongo: true,
       useAuth: true,
@@ -51,7 +49,7 @@ async function main() {
     answers = await questions(projectNameArg);
   }
 
-  const projectName = projectNameArg || answers.projectName;
+  const projectName = projectNameArg || validateDirname(answers.projectName);
 
   createRootDirectory(projectName);
   createPackageJson(projectName);
@@ -68,9 +66,10 @@ async function main() {
   console.log(
     chalk.blue(`➡️  To start the development server, follow these steps:`)
   );
-  console.log(chalk.blue(`1️⃣  - cd ${projectName}`));
-  console.log(chalk.blue(`2️⃣  - add your MONGODB_URI in .env file`));
-  console.log(chalk.blue(`3️⃣  - npm run dev\n`));
+  console.log(chalk.blue(`=> cd ${projectName}`));
+  answers.useMongo &&
+    console.log(chalk.blue(`=> add your MONGODB_URI in .env file`));
+  console.log(chalk.blue(`=> npm run dev\n`));
 }
 
-main().catch((error) => console.error(chalk.red("❌ Error:", error)));
+main().catch((error) => console.error(chalk.red("❌ ", error)));

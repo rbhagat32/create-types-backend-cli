@@ -4,33 +4,34 @@ export const appContent = (
   answers: Answers
 ) => `import express, { type Request, type Response } from "express";
 import dotenv from "dotenv";
-${answers.useCors && 'import cors from "cors";'}
-${answers.useAuth && 'import cookieParser from "cookie-parser";'}
-${answers.useMongo && 'import { connectDB } from "./config/db.js";'}
+${answers.useCors ? 'import cors from "cors";' : ""}
+${answers.useAuth ? 'import cookieParser from "cookie-parser";' : ""}
+${answers.useMongo ? 'import { connectDB } from "./config/db.js";' : ""}
 
 const app = express();
 
 // setup
 dotenv.config({ path: ".env" });
-connectDB();
+${answers.useMongo ? "connectDB();" : ""}
 ${
-  answers.useCors &&
-  `app.use(
+  answers.useCors
+    ? `app.use(
   cors({
     origin: [
-      \`${process.env.FRONTEND_URL_DEV}\`,
-      \`${process.env.FRONTEND_URL_PROD}\`,
+      \`\${process.env.FRONTEND_URL_DEV}\`,
+      \`\${process.env.FRONTEND_URL_PROD}\`,
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );`
+    : ""
 }
 
 // middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-${answers.useAuth && "app.use(cookieParser());"}
+${answers.useAuth ? "app.use(cookieParser());" : ""}
 
 // routes
 app.get("/", (_req: Request, res: Response) => {

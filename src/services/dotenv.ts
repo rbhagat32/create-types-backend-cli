@@ -7,7 +7,7 @@ export const createDotenv = (answers: Answers) => {
   console.log(chalk.green("📕 Creating .env..."));
 
   if (answers.useMongo) {
-    dotenvContent.push("MONGODB_URI=<your_mongodb_uri>");
+    dotenvContent.push("MONGODB_URI=");
     dotenvExampleContent.push("MONGODB_URI=");
   }
 
