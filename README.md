@@ -17,20 +17,20 @@ npm install -g create-types-backend@latest
 ## 📦 Features
 
 ✅ **Generates a well-structured Express-TypeScript backend**  
-✅ **Supports automatic setup using `-y` flag**
+✅ **Supports automatic setup using `-y` flag**  
 ✅ **Includes Express.js, Typescript, DotEnv and essential configurations**  
 ✅ **Sets up tsx for hot-reloading while development**  
 ✅ **Resolves import alias to @**  
 ✅ **Optional support for:**
 
-    	- Custom Error Handlers
-    	- CORS
-    	- MongoDB
-    	- JWT, bcrypt, cookie-parser
-    	- Multer
-    	- Cloudinary
-    	- ES-Lint
-    	- Docker
+    - Custom Error Handlers
+    - CORS
+    - MongoDB
+    - JWT, bcrypt, cookie-parser
+    - Multer
+    - Cloudinary
+    - ES-Lint
+    - Docker
 
 ## 🚀 Usage
 
