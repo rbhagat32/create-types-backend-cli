@@ -38,15 +38,15 @@ npm install -g create-types-backend@latest
 ➡️ Creating a new project
 
 ```sh
-npx create-types-backend@latest
+npx create-types-backend@latest : Manual setup with flexibility to choose required configurations.
 
 OR
 
-npx create-types-backend@latest -y : Run in default mode
+npx create-types-backend@latest -y : Run in default mode (advanced packages are not configured)
 
 OR
 
-npx create-types-backend@latest myapp : Enter project name through CLI arguement
+npx create-types-backend@latest myapp : Enter project name through CLI argument
 ```
 
 ➡️ Starting the Development Server
