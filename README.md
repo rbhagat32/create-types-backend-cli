@@ -106,5 +106,5 @@ This project is **open-source** and available under the **ISC License**.
 
 **Raghav Bhagat**  
 🔗 GitHub: _[https://github.com/rbhagat32]_  
+🔗 NPM: _[https://www.npmjs.com/~raghavbhagat32]_  
 🔗 LinkedIn: _[https://www.linkedin.com/in/rbhagat32]_
-🔗 NPM: _[https://www.npmjs.com/~raghavbhagat32]_
