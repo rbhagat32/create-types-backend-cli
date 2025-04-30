@@ -1,6 +1,6 @@
 # 🚀 TypeScript-Express Backend Setup CLI
 
-A CLI tool to setup generate an **Express.js backend** in **TypeScript**, using essential configurations and user's preferences.
+A CLI tool to quickly setup an **Express.js backend** in **TypeScript**, using essential configurations and user's preferences.
 
 ## ⚡ Installation
 

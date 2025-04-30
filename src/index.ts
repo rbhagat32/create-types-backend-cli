@@ -13,7 +13,8 @@ import { createPrettierrc } from "@/services/prettierrc.js";
 import { createMulter } from "@/services/multer.js";
 import { createDB } from "@/services/db.js";
 import { createApp } from "@/services/app.js";
-import { createCloudinary } from "./services/cloudinary.js";
+import { createCloudinary } from "@/services/cloudinary.js";
+import { createDocker } from "@/services/docker.js";
 
 async function main() {
   console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !"));
@@ -33,11 +34,13 @@ async function main() {
 
     answers = {
       projectName: projectNameArg,
+      portNumber: 3000,
       useCors: true,
       useMongo: true,
       useAuth: true,
       useMulter: false,
       useCloudinary: false,
+      useDocker: false,
     };
   } else {
     // Get user input if not in auto mode
@@ -47,7 +50,7 @@ async function main() {
   const projectName = projectNameArg || validateDirname(answers.projectName);
 
   createRootDirectory(projectName);
-  createPackageJson(projectName);
+  createPackageJson(projectName, answers);
   createTsConfig();
   createGitIgnore();
   createDotenv(answers);
@@ -56,6 +59,7 @@ async function main() {
   if (answers.useMongo) createDB();
   if (answers.useMulter) createMulter();
   if (answers.useCloudinary) createCloudinary();
+  if (answers.useDocker) createDocker(projectName, answers);
   createApp(answers);
   installDependencies(answers);
   installDevDependencies(answers);

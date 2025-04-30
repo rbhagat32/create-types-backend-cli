@@ -9,6 +9,12 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       type: "input",
     },
     {
+      name: "portNumber",
+      message: "Enter port number:",
+      type: "number",
+      default: 3000,
+    },
+    {
       name: "useCors",
       message: "Include CORS?",
       type: "confirm",
@@ -34,7 +40,13 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
     },
     {
       name: "useCloudinary",
-      message: "Configure Cloudinary for image storage?",
+      message: "Configure Cloudinary for storing images on cloud?",
+      type: "confirm",
+      default: false,
+    },
+    {
+      name: "useDocker",
+      message: "Setup Docker for containerization?",
       type: "confirm",
       default: false,
     },
