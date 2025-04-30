@@ -20,8 +20,9 @@ npm install -g create-types-backend@latest
 ✅ **Supports automatic setup using `-y` flag**  
 ✅ **Includes Express.js, Typescript, DotEnv and essential configurations**  
 ✅ **Sets up tsx for hot-reloading while development**  
-✅ **Resolves import alias to @**  
-✅ **Optional support for:**
+✅ **Resolves import alias to @**
+
+## ⚙️ Optional support for:
 
     - Custom Error Handlers
     - CORS
