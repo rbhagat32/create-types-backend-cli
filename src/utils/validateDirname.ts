@@ -4,6 +4,8 @@ export const validateDirname = (name: string): string => {
   if (!name) return "";
   let trimmed = name.trim();
 
+  if (trimmed === ".") return trimmed;
+
   // Replace all whitespace with hyphens
   trimmed = trimmed.replace(" ", "-");
 

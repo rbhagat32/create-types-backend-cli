@@ -1,5 +1,5 @@
 export const packageJsonContent = (projectName: string) => `{
-  "name": "${projectName}",
+  "name": "${projectName === "." ? "backend" : projectName}",
   "version": "1.0.0",
   "description": "This app was created using npx create-types-backend@latest",
   "main": "dist/app.js",
