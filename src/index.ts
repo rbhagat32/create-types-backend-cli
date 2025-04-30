@@ -7,24 +7,19 @@ import { createRootDirectory } from "./services/root-directory.js";
 import { createPackageJson } from "./services/package-json.js";
 import { createTsConfig } from "./services/ts-config.js";
 import { createGitIgnore } from "./services/git-ignore.js";
-import {
-  installDependencies,
-  installDevDependencies,
-} from "./services/install-deps.js";
+import { installDependencies, installDevDependencies } from "./services/install-deps.js";
 import { validateDirname } from "./utils/validateDirname.js";
 import { createFolderStructure } from "./services/folder-structure.js";
 import { createDotenv } from "./services/dotenv.js";
 import { dbContent } from "./content/db.js";
 import { appContent } from "./content/app.js";
+import { createPrettierrc } from "./services/prettierrc.js";
 
 async function main() {
-  console.log(
-    chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !")
-  );
+  console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !"));
 
   // Get the project name from command-line argument
-  let projectNameArg =
-    process.argv[2] !== "-y" ? process.argv[2] : process.argv[3];
+  let projectNameArg = process.argv[2] !== "-y" ? process.argv[2] : process.argv[3];
 
   projectNameArg = validateDirname(projectNameArg);
 
@@ -34,9 +29,7 @@ async function main() {
   let answers: Answers;
 
   if (autoMode) {
-    console.log(
-      chalk.yellow("⚡ Running in auto mode with default preferences...")
-    );
+    console.log(chalk.yellow("⚡ Running in auto mode with default preferences..."));
 
     answers = {
       projectName: projectNameArg,
@@ -56,6 +49,7 @@ async function main() {
   createTsConfig();
   createGitIgnore();
   createDotenv(answers);
+  createPrettierrc();
   installDependencies(answers);
   installDevDependencies(answers);
   createFolderStructure();
@@ -63,12 +57,9 @@ async function main() {
   fs.writeFileSync("src/app.ts", appContent(answers));
 
   console.log(chalk.green(`🎉 You are good to go ! 🚀\n`));
-  console.log(
-    chalk.blue(`➡️  To start the development server, follow these steps:`)
-  );
+  console.log(chalk.blue(`➡️  To start the development server, follow these steps:`));
   console.log(chalk.blue(`=> cd ${projectName}`));
-  answers.useMongo &&
-    console.log(chalk.blue(`=> add your MONGODB_URI in .env file`));
+  answers.useMongo && console.log(chalk.blue(`=> add your MONGODB_URI in .env file`));
   console.log(chalk.blue(`=> npm run dev\n`));
 }
 

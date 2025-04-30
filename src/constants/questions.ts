@@ -23,8 +23,7 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
     },
     {
       name: "useAuth",
-      message:
-        "Setup authentication packages (cookie-parser, jsonwebtoken, bcrypt)?",
+      message: "Setup authentication packages (cookie-parser, jsonwebtoken, bcrypt)?",
       type: "confirm",
       default: true,
     },

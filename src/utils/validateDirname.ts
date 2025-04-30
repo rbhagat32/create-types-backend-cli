@@ -11,20 +11,12 @@ export const validateDirname = (name: string): string => {
 
   // Basic file system checks (Windows/macOS/Linux)
   if (/[. ]$/.test(trimmed)) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
   const invalidChars = /[<>:"/\\|?*\x00-\x1F]/;
   if (invalidChars.test(trimmed)) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
 
@@ -54,55 +46,31 @@ export const validateDirname = (name: string): string => {
     "LPT9",
   ];
   if (reserved.includes(trimmed.toUpperCase())) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
 
   // NPM package.json "name" restrictions
   if (trimmed.length > 214) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
   if (trimmed.startsWith(".") || trimmed.startsWith("_")) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
   if (/\s/.test(trimmed)) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
   if (!/^[a-z0-9\-~][a-z0-9\-._~]*$/.test(trimmed)) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
 
   // Disallow scoped names if used as folder (e.g., @myorg/package)
   if (trimmed.startsWith("@")) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
 
@@ -127,11 +95,7 @@ export const validateDirname = (name: string): string => {
     "child_process",
   ];
   if (coreModules.includes(trimmed)) {
-    console.log(
-      chalk.red(
-        "❌ Invalid project name: proceeding with default name => backend"
-      )
-    );
+    console.log(chalk.red("❌ Invalid project name: proceeding with default name => backend"));
     return "backend";
   }
 
