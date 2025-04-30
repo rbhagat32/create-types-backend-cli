@@ -28,7 +28,13 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
     },
     {
       name: "useMulter",
-      message: "Setup Multer for image uploads?",
+      message: "Setup Multer for file uploads?",
+      type: "confirm",
+      default: false,
+    },
+    {
+      name: "useCloudinary",
+      message: "Configure Cloudinary for image storage?",
       type: "confirm",
       default: false,
     },

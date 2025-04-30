@@ -34,9 +34,7 @@
   "homepage": "https://github.com/rbhagat32/create-types-backend#readme",
   "dependencies": {
     "chalk": "^5.4.1",
-    "clsx": "^2.1.1",
-    "inquirer": "^12.5.0",
-    "tailwind-merge": "^3.2.0"
+    "inquirer": "^12.5.0"
   },
   "devDependencies": {
     "@types/node": "^22.15.3",

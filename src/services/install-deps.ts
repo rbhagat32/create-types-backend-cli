@@ -10,6 +10,7 @@ export const installDependencies = (answers: Answers) => {
   if (answers.useMongo) dependencies.push("mongoose");
   if (answers.useAuth) dependencies.push("jsonwebtoken", "cookie-parser", "bcrypt");
   if (answers.useMulter) dependencies.push("multer");
+  if (answers.useCloudinary) dependencies.push("cloudinary", "sharp", "streamifier", "uuid");
 
   execSync(`npm install ${dependencies.join(" ")}`, { stdio: "ignore" });
 };
@@ -24,6 +25,7 @@ export const installDevDependencies = (answers: Answers) => {
   if (answers.useAuth)
     devDependencies.push("@types/jsonwebtoken", "@types/cookie-parser", "@types/bcrypt");
   if (answers.useMulter) devDependencies.push("@types/multer");
+  if (answers.useCloudinary) devDependencies.push("@types/streamifier", "@types/uuid");
 
   execSync(`npm install -D ${devDependencies.join(" ")}`);
 };

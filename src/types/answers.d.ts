@@ -4,4 +4,5 @@ interface Answers {
   useMongo: boolean;
   useAuth: boolean;
   useMulter: boolean;
+  useCloudinary: boolean;
 }

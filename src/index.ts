@@ -13,6 +13,7 @@ import { createPrettierrc } from "@/services/prettierrc.js";
 import { createMulter } from "@/services/multer.js";
 import { createDB } from "@/services/db.js";
 import { createApp } from "@/services/app.js";
+import { createCloudinary } from "./services/cloudinary.js";
 
 async function main() {
   console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !"));
@@ -36,6 +37,7 @@ async function main() {
       useMongo: true,
       useAuth: true,
       useMulter: false,
+      useCloudinary: false,
     };
   } else {
     // Get user input if not in auto mode
@@ -53,6 +55,7 @@ async function main() {
   createFolderStructure();
   if (answers.useMongo) createDB();
   if (answers.useMulter) createMulter();
+  if (answers.useCloudinary) createCloudinary();
   createApp(answers);
   installDependencies(answers);
   installDevDependencies(answers);
