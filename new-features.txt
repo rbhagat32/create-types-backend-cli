@@ -1,2 +1,0 @@
-8) eslint (optional)
-9) error handlers (optional)
