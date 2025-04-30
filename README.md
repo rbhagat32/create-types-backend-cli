@@ -35,16 +35,16 @@ npm install -g create-types-backend@latest
 
 ## 🚀 Usage
 
-➡️ Creating new project
+➡️ Creating a new project
 
 ```sh
 npx create-types-backend@latest
 
-	OR
+OR
 
 npx create-types-backend@latest -y : Run in default mode
 
-	OR
+OR
 
 npx create-types-backend@latest myapp : Enter project name through CLI arguement
 ```
