@@ -1,5 +1,4 @@
-3) multer (optional)
 4) cloudinary (optional)
 5) docker (optional)
 8) eslint (optional)
-9) error handler (optional)
+9) error handlers (optional)

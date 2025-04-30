@@ -21,7 +21,16 @@ npm install -g create-types-backend@latest
 ✅ **Includes Express.js, Typescript, DotEnv and essential configurations**  
 ✅ **Sets up tsx for hot-reloading while development**  
 ✅ **Resolves import alias to @**  
-✅ **Optionally adds MongoDB, CORS, Authentication and Multer support**
+✅ **Optional support for:**
+
+    	- Custom Error Handlers
+    	- CORS
+    	- MongoDB
+    	- JWT, bcrypt, cookie-parser
+    	- Multer
+    	- Cloudinary
+    	- ES-Lint
+    	- Docker
 
 ## 🚀 Usage
 
