@@ -35,28 +35,21 @@ npm install -g create-types-backend@latest
 
 ## 🚀 Usage
 
-1️⃣ Create a new project
+➡️ Creating new project
 
 ```sh
 npx create-types-backend@latest
+		OR
+npx create-types-backend@latest -y : Run in default mode
+		OR
+npx create-types-backend@latest myapp : Enter project name through CLI arguement
 ```
 
-2️⃣ Run in Auto Mode (`-y`)
-
-```sh
-npx create-types-backend@latest -y
-```
-
-3️⃣ Enter project name through CLI
-
-```sh
-npx create-types-backend@latest myapp
-```
-
-4️⃣ Starting the Development Server
+➡️ Starting the Development Server
 
 ```sh
 Just follow these 3 steps:
+
 -   cd into the newly created backend directory
 -   add your MONGODB_URI in .env file (if using MongoDB)
 -   npm run dev
