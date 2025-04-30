@@ -1,5 +1,4 @@
 import inquirer from "inquirer";
-import { type Answers } from "../types/answers";
 
 export const questions = async (projectNameArg: string): Promise<Answers> =>
   inquirer.prompt<Answers>([
@@ -26,5 +25,11 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       message: "Setup authentication packages (cookie-parser, jsonwebtoken, bcrypt)?",
       type: "confirm",
       default: true,
+    },
+    {
+      name: "useMulter",
+      message: "Setup Multer for image uploads?",
+      type: "confirm",
+      default: false,
     },
   ]);

@@ -11,6 +11,13 @@ export const tsConfigContent = `{
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-  }
+    "baseUrl": "./",
+    "paths": {
+        "@/*": ["src/*"]
+    },
+    "typeRoots": ["./src/types", "./node_modules/@types"]
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist"]
 }
 `;

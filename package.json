@@ -11,7 +11,7 @@
   },
   "scripts": {
     "clean": "rimraf dist && rimraf node_modules && rimraf package-lock.json",
-    "build": "rimraf dist && tsc"
+    "build": "rimraf dist && tsc && tsc-alias"
   },
   "keywords": [
     "typescript",
@@ -39,7 +39,8 @@
     "tailwind-merge": "^3.2.0"
   },
   "devDependencies": {
-    "@types/node": "^22.13.11",
-    "rimraf": "^6.0.1"
+    "@types/node": "^22.15.3",
+    "rimraf": "^6.0.1",
+    "tsc-alias": "^1.8.15"
   }
 }

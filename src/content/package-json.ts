@@ -6,8 +6,8 @@ export const packageJsonContent = (projectName: string) => `{
   "type": "module",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "tsc",
-    "dev": "concurrently \\"tsc -w\\" \\"npx nodemon dist/app.js\\""
+    "build": "tsc && tsc-alias",
+    "dev": "tsx watch src/app.ts"
   },
   "keywords": [],
   "author": "",

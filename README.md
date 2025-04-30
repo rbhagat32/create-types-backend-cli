@@ -18,7 +18,7 @@ npm install -g create-types-backend@latest
 
 ✅ **Generates a well-structured Express-TypeScript backend**  
 ✅ **Includes Express.js, Typescript and essential configurations**  
-✅ **Sets up TypeScript, Nodemon, and Concurrently for development**  
+✅ **Sets up TypeScript, @ import alias and tsx for better development experience**  
 ✅ **Optionally adds MongoDB, CORS, and Authentication support**  
 ✅ **Creates a ready-to-use folder structure**  
 ✅ **Supports automatic setup using `-y` flag**

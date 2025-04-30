@@ -1,7 +1,6 @@
 import fs from "fs";
 import chalk from "chalk";
-import { type Answers } from "../types/answers.js";
-import { dotenvContent, dotenvExampleContent } from "../content/dotenv.js";
+import { dotenvContent, dotenvExampleContent } from "@/content/dotenv.js";
 
 export const createDotenv = (answers: Answers) => {
   console.log(chalk.green("📕 Creating .env..."));

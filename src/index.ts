@@ -1,19 +1,18 @@
 #!/usr/bin/env node
-import fs from "fs";
 import chalk from "chalk";
-import { type Answers } from "./types/answers.js";
-import { questions } from "./constants/questions.js";
-import { createRootDirectory } from "./services/root-directory.js";
-import { createPackageJson } from "./services/package-json.js";
-import { createTsConfig } from "./services/ts-config.js";
-import { createGitIgnore } from "./services/git-ignore.js";
-import { installDependencies, installDevDependencies } from "./services/install-deps.js";
-import { validateDirname } from "./utils/validateDirname.js";
-import { createFolderStructure } from "./services/folder-structure.js";
-import { createDotenv } from "./services/dotenv.js";
-import { dbContent } from "./content/db.js";
-import { appContent } from "./content/app.js";
-import { createPrettierrc } from "./services/prettierrc.js";
+import { questions } from "@/constants/questions.js";
+import { createRootDirectory } from "@/services/root-directory.js";
+import { createPackageJson } from "@/services/package-json.js";
+import { createTsConfig } from "@/services/ts-config.js";
+import { createGitIgnore } from "@/services/git-ignore.js";
+import { installDependencies, installDevDependencies } from "@/services/install-deps.js";
+import { validateDirname } from "@/utils/validateDirname.js";
+import { createFolderStructure } from "@/services/folder-structure.js";
+import { createDotenv } from "@/services/dotenv.js";
+import { createPrettierrc } from "@/services/prettierrc.js";
+import { createMulter } from "@/services/multer.js";
+import { createDB } from "@/services/db.js";
+import { createApp } from "@/services/app.js";
 
 async function main() {
   console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !"));
@@ -36,6 +35,7 @@ async function main() {
       useCors: true,
       useMongo: true,
       useAuth: true,
+      useMulter: false,
     };
   } else {
     // Get user input if not in auto mode
@@ -50,11 +50,12 @@ async function main() {
   createGitIgnore();
   createDotenv(answers);
   createPrettierrc();
+  createFolderStructure();
+  if (answers.useMongo) createDB();
+  if (answers.useMulter) createMulter();
+  createApp(answers);
   installDependencies(answers);
   installDevDependencies(answers);
-  createFolderStructure();
-  if (answers.useMongo) fs.writeFileSync("src/config/db.ts", dbContent);
-  fs.writeFileSync("src/app.ts", appContent(answers));
 
   console.log(chalk.green(`🎉 You are good to go ! 🚀\n`));
   console.log(chalk.blue(`➡️  To start the development server, follow these steps:`));
