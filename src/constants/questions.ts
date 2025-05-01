@@ -7,12 +7,19 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       message: "Enter project name:",
       when: !projectNameArg,
       type: "input",
+      default: "backend",
     },
     {
       name: "portNumber",
       message: "Enter port number:",
       type: "number",
-      default: 3000,
+      default: 4000,
+    },
+    {
+      name: "useErrorHandler",
+      message: "Setup Custom Error Handlers?",
+      type: "confirm",
+      default: true,
     },
     {
       name: "useCors",

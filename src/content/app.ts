@@ -45,10 +45,6 @@ app.get("/", (_req: Request, res: Response) => {
 
 // => ADD YOUR ROUTES HERE <=
 
-app.use((_req: Request, res: Response) => {
-  res.status(404).send("Route does not exist !");
-});
-
 const PORT = Number(process.env.PORT) || ${answers.portNumber};
 app.listen(PORT, () => {
   console.log(\`Server is running on http://localhost:\${PORT}\`);

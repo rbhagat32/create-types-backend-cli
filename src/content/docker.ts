@@ -6,21 +6,21 @@ dist
 .git
 .vscode`;
 
-export const dockerfileContent = `FROM node
+export const dockerfileContent = (answers: Answers) => `FROM node
 WORKDIR /app
 COPY package* .
 RUN npm install
 COPY . .
 RUN npm run build
-EXPOSE 3000
+EXPOSE ${answers.portNumber}
 CMD ["npm", "start"]`;
 
-export const dockerfileDevContent = `FROM node
+export const dockerfileDevContent = (answers: Answers) => `FROM node
 WORKDIR /app
 COPY package* .
 RUN npm install
 COPY . .
-EXPOSE 3000
+EXPOSE ${answers.portNumber}
 CMD ["npm", "run", "dev"]`;
 
 export const dockercomposeContent = (projectName: string, answers: Answers) => `services:

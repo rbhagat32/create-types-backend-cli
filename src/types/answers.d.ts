@@ -1,6 +1,7 @@
 interface Answers {
   projectName: string;
   portNumber: number;
+  useErrorHandler: boolean;
   useCors: boolean;
   useMongo: boolean;
   useAuth: boolean;

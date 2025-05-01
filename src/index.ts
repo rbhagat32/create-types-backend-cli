@@ -18,7 +18,7 @@ import { createDocker } from "@/services/docker.js";
 import { createESLint } from "@/services/eslint.js";
 
 async function main() {
-  console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !"));
+  console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !\n"));
 
   // Get the project name from command-line argument
   let projectNameArg = process.argv[2] !== "-y" ? process.argv[2] : process.argv[3];
@@ -31,18 +31,19 @@ async function main() {
   let answers: Answers;
 
   if (autoMode) {
-    console.log(chalk.yellow("⚡ Running in auto mode with default preferences..."));
+    console.log(chalk.yellow("⚡ Running in auto mode with all preferences set to YES..."));
 
     answers = {
-      projectName: projectNameArg,
-      portNumber: 3000,
+      projectName: projectNameArg === "" ? "backend" : projectNameArg,
+      portNumber: 4000,
+      useErrorHandler: true,
       useCors: true,
       useMongo: true,
       useAuth: true,
-      useMulter: false,
-      useCloudinary: false,
+      useMulter: true,
+      useCloudinary: true,
       useESLint: true,
-      useDocker: false,
+      useDocker: true,
     };
   } else {
     // Get user input if not in auto mode
