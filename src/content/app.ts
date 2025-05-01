@@ -6,6 +6,8 @@ ${answers.useCors ? 'import cors from "cors";' : ""}
 ${answers.useAuth ? 'import cookieParser from "cookie-parser";' : ""}
 ${answers.useMongo ? 'import { connectDB } from "@/config/db.js";' : ""}
 ${answers.useCloudinary ? 'import { v2 as cloudinary } from "cloudinary";' : ""}
+import { userRouter } from "@/routes/user.js";
+${answers.useErrorHandler ? 'import { errorHandler } from "@/middlewares/error-handler.js";' : ""}
 
 const app = express();
 
@@ -44,6 +46,14 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 // => ADD YOUR ROUTES HERE <=
+app.use("/api/user", userRouter);
+
+${
+  answers.useErrorHandler
+    ? `// custom error handler
+app.use(errorHandler);`
+    : ""
+}
 
 const PORT = Number(process.env.PORT) || ${answers.portNumber};
 app.listen(PORT, () => {

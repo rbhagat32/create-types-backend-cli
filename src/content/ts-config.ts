@@ -4,8 +4,8 @@ export const tsConfigContent = `{
     "module": "ES2022",
     "moduleResolution": "Node",
     "esModuleInterop": true,
-    "rootDir": "src",
-    "outDir": "dist",
+    "rootDir": "./src",
+    "outDir": "./dist",
     "strict": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,7 +13,7 @@ export const tsConfigContent = `{
     "noUnusedParameters": true,
     "baseUrl": "./",
     "paths": {
-        "@/*": ["src/*"]
+        "@/*": ["./src/*"]
     },
     "typeRoots": [
       "./node_modules/@types",

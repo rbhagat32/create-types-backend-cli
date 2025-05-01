@@ -1,21 +1,25 @@
 #!/usr/bin/env node
+
 import chalk from "chalk";
+import { validateDirname } from "@/utils/validateDirname.js";
 import { questions } from "@/constants/questions.js";
 import { createRootDirectory } from "@/services/root-directory.js";
 import { createPackageJson } from "@/services/package-json.js";
 import { createTsConfig } from "@/services/ts-config.js";
 import { createGitIgnore } from "@/services/git-ignore.js";
-import { installDependencies, installDevDependencies } from "@/services/install-deps.js";
-import { validateDirname } from "@/utils/validateDirname.js";
-import { createFolderStructure } from "@/services/folder-structure.js";
 import { createDotenv } from "@/services/dotenv.js";
 import { createPrettierrc } from "@/services/prettierrc.js";
-import { createMulter } from "@/services/multer.js";
+import { createFolderStructure } from "@/services/folder-structure.js";
+import { createRouter } from "@/services/example-router.js";
+import { createController } from "@/services/example-controller.js";
+import { createErrorHandler } from "@/services/error-handler.js";
 import { createDB } from "@/services/db.js";
-import { createApp } from "@/services/app.js";
+import { createMulter } from "@/services/multer.js";
 import { createCloudinary } from "@/services/cloudinary.js";
-import { createDocker } from "@/services/docker.js";
 import { createESLint } from "@/services/eslint.js";
+import { createDocker } from "@/services/docker.js";
+import { createApp } from "@/services/app.js";
+import { installDependencies, installDevDependencies } from "@/services/install-deps.js";
 
 async function main() {
   console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !\n"));
@@ -36,10 +40,10 @@ async function main() {
     answers = {
       projectName: projectNameArg === "" ? "backend" : projectNameArg,
       portNumber: 4000,
-      useErrorHandler: true,
       useCors: true,
       useMongo: true,
       useAuth: true,
+      useErrorHandler: true,
       useMulter: true,
       useCloudinary: true,
       useESLint: true,
@@ -59,6 +63,9 @@ async function main() {
   createDotenv(answers);
   createPrettierrc();
   createFolderStructure();
+  createRouter();
+  createController(answers);
+  if (answers.useErrorHandler) createErrorHandler();
   if (answers.useMongo) createDB();
   if (answers.useMulter) createMulter();
   if (answers.useCloudinary) createCloudinary();

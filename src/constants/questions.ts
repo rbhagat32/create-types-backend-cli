@@ -16,12 +16,6 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       default: 4000,
     },
     {
-      name: "useErrorHandler",
-      message: "Setup Custom Error Handlers?",
-      type: "confirm",
-      default: true,
-    },
-    {
       name: "useCors",
       message: "Include CORS?",
       type: "confirm",
@@ -40,6 +34,12 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       default: true,
     },
     {
+      name: "useErrorHandler",
+      message: "Setup Custom Error Handlers?",
+      type: "confirm",
+      default: true,
+    },
+    {
       name: "useMulter",
       message: "Setup Multer for file uploads?",
       type: "confirm",
@@ -47,7 +47,7 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
     },
     {
       name: "useCloudinary",
-      message: "Configure Cloudinary for storing images on cloud?",
+      message: "Configure Cloudinary for storing files on cloud?",
       type: "confirm",
       default: false,
     },
