@@ -1,22 +1,25 @@
 export const tsConfigContent = `{
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "target": "ES2022",
+    "module": "ES2022",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
     "rootDir": "src",
     "outDir": "dist",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "baseUrl": "./",
     "paths": {
         "@/*": ["src/*"]
-    }
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/types"
+    ],
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts"],
   "exclude": ["node_modules", "dist"]
-}
-`;
+}`;
