@@ -27,5 +27,5 @@ export const installDevDependencies = (answers: Answers) => {
   if (answers.useMulter) devDependencies.push("@types/multer");
   if (answers.useCloudinary) devDependencies.push("@types/streamifier", "@types/uuid");
 
-  execSync(`npm install -D ${devDependencies.join(" ")}`);
+  execSync(`npm install -D ${devDependencies.join(" ")}`, { stdio: "ignore" });
 };

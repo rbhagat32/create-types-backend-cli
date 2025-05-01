@@ -7,8 +7,8 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
   "scripts": {
     "start": "node dist/app.js",
     "build": "tsc && tsc-alias",
-    "dev": "tsx watch src/app.ts"
-    ${answers.useDocker ? '"docker:dev": "docker-compose up --watch"' : ""}
+    "dev": "tsx watch src/app.ts",
+    ${answers.useDocker ? '"docker:dev": "docker-compose up --watch"' : ""},
     ${answers.useDocker ? '"docker:stop": "docker-compose down"' : ""}
   },
   "keywords": [],

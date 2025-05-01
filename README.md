@@ -56,7 +56,7 @@ Just follow these 3 steps:
 
 -   cd into the newly created backend directory
 -   add your MONGODB_URI in .env file (if using MongoDB)
--   npm run dev
+-   npm run dev OR npm run docker:dev (if using docker)
 ```
 
 ## 🛠️ Project Structure
