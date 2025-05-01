@@ -15,6 +15,7 @@ import { createDB } from "@/services/db.js";
 import { createApp } from "@/services/app.js";
 import { createCloudinary } from "@/services/cloudinary.js";
 import { createDocker } from "@/services/docker.js";
+import { createESLint } from "@/services/eslint.js";
 
 async function main() {
   console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !"));
@@ -40,6 +41,7 @@ async function main() {
       useAuth: true,
       useMulter: false,
       useCloudinary: false,
+      useESLint: true,
       useDocker: false,
     };
   } else {
@@ -59,6 +61,7 @@ async function main() {
   if (answers.useMongo) createDB();
   if (answers.useMulter) createMulter();
   if (answers.useCloudinary) createCloudinary();
+  if (answers.useESLint) createESLint();
   if (answers.useDocker) createDocker(projectName, answers);
   createApp(answers);
   installDependencies(answers);

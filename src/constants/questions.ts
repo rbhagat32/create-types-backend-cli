@@ -45,6 +45,12 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       default: false,
     },
     {
+      name: "useESLint",
+      message: "Setup ES-Lint for code linting?",
+      type: "confirm",
+      default: true,
+    },
+    {
       name: "useDocker",
       message: "Setup Docker for containerization?",
       type: "confirm",

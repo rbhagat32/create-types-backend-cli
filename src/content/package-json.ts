@@ -6,9 +6,10 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
   "type": "module",
   "scripts": {
     "start": "node dist/app.js",
-    "build": "tsc && tsc-alias",
-    "dev": "tsx watch src/app.ts",
-    ${answers.useDocker ? '"docker:dev": "docker-compose up --watch"' : ""},
+    "build": "${answers.useESLint ? "npm run lint && " : ""}tsc && tsc-alias",
+    "dev": "tsx watch src/app.ts"${!answers.useESLint && !answers.useDocker ? "" : ","}
+    ${answers.useESLint ? `"lint": "eslint src"${answers.useDocker ? "," : ""}` : ""}
+    ${answers.useDocker ? '"docker:dev": "docker-compose up --watch",' : ""}
     ${answers.useDocker ? '"docker:stop": "docker-compose down"' : ""}
   },
   "keywords": [],

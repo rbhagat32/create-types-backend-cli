@@ -26,6 +26,8 @@ export const installDevDependencies = (answers: Answers) => {
     devDependencies.push("@types/jsonwebtoken", "@types/cookie-parser", "@types/bcrypt");
   if (answers.useMulter) devDependencies.push("@types/multer");
   if (answers.useCloudinary) devDependencies.push("@types/streamifier", "@types/uuid");
+  if (answers.useESLint)
+    devDependencies.push("eslint", "@eslint/js", "typescript-eslint", "globals");
 
   execSync(`npm install -D ${devDependencies.join(" ")}`, { stdio: "ignore" });
 };
