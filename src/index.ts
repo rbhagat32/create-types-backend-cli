@@ -12,6 +12,7 @@ import { createPrettierrc } from "@/services/prettierrc.js";
 import { createFolderStructure } from "@/services/folder-structure.js";
 import { createRouter } from "@/services/example-router.js";
 import { createController } from "@/services/example-controller.js";
+import { createAuth } from "./services/auth.js";
 import { createErrorHandler } from "@/services/error-handler.js";
 import { createDB } from "@/services/db.js";
 import { createMulter } from "@/services/multer.js";
@@ -65,6 +66,7 @@ async function main() {
   createFolderStructure();
   createRouter();
   createController(answers);
+  if (answers.useAuth) createAuth;
   if (answers.useErrorHandler) createErrorHandler();
   if (answers.useMongo) createDB();
   if (answers.useMulter) createMulter();

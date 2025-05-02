@@ -68,6 +68,7 @@ myapp/
        	├──db.ts		# MongoDB connection setup
        	├──multer.ts	        # Multer setup
     ├── constants/              # Constant values
+        ├──cookie-options.ts	# Cookie options for JWT
     ├── controllers/            # Route handlers
        	├──user.ts	        # Example controller
     ├── helpers/                # Helper functions
@@ -81,6 +82,7 @@ myapp/
        	├──file.d.ts	        # Example FileType definition (reqd for cloudinary)
     ├── utils/                  # Reusable utilities
        	├──cloudinary.ts	# Cloudinary upload and delete controllers
+        ├──generate-token.ts	# Generate JWT token and set cookie
        	├──try-catch.ts	        # Try-Catch wrapper for async functions
     ├── app.ts                  # Main entry point of express app
 │── .dockerignore               # Docker ignore file
