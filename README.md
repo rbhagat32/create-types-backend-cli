@@ -65,22 +65,22 @@ Just follow these 3 steps:
 myapp/
 │── src/
     ├── config/                 # Configuration files (e.g., database)
-       	├──db.ts		        # MongoDB connection setup
+       	├──db.ts		# MongoDB connection setup
        	├──multer.ts	        # Multer setup
     ├── constants/              # Constant values
     ├── controllers/            # Route handlers
-       	├──user.ts	            # Example controller
+       	├──user.ts	        # Example controller
     ├── helpers/                # Helper functions
     ├── middlewares/            # Express middlewares
-       	├──errorHandler.ts	    # Custom error handler
+       	├──errorHandler.ts	# Custom error handler
     ├── models/                 # Mongoose models
-       	├──user.ts	            # Example mongoose model
+       	├──user.ts	        # Example mongoose model
     ├── routes/                 # API routes
-       	├──user.ts	            # Example route
+       	├──user.ts	        # Example route
     ├── types/                  # TypeScript types
        	├──file.d.ts	        # Example FileType definition (reqd for cloudinary)
     ├── utils/                  # Reusable utilities
-       	├──cloudinary.ts	    # Cloudinary upload and delete controllers
+       	├──cloudinary.ts	# Cloudinary upload and delete controllers
        	├──try-catch.ts	        # Try-Catch wrapper for async functions
     ├── app.ts                  # Main entry point of express app
 │── .dockerignore               # Docker ignore file
