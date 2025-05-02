@@ -64,38 +64,38 @@ Just follow these 3 steps:
 ```sh
 myapp/
 │── src/
-    ├── config/                 # Configuration files (e.g., database)
-       	├──db.ts		# MongoDB connection setup
-       	├──multer.ts	        # Multer setup
-    ├── constants/              # Constant values
-        ├──cookie-options.ts	# Cookie options for JWT
-    ├── controllers/            # Route handlers
-       	├──user.ts	        # Example controller
-    ├── helpers/                # Helper functions
-    ├── middlewares/            # Express middlewares
-       	├──errorHandler.ts	# Custom error handler
-    ├── models/                 # Mongoose models
-       	├──user.ts	        # Example mongoose model
-    ├── routes/                 # API routes
-       	├──user.ts	        # Example route
-    ├── types/                  # TypeScript types
-       	├──file.d.ts	        # Example FileType definition (reqd for cloudinary)
-    ├── utils/                  # Reusable utilities
-       	├──cloudinary.ts	# Cloudinary upload and delete controllers
-        ├──generate-token.ts	# Generate JWT token and set cookie
-       	├──try-catch.ts	        # Try-Catch wrapper for async functions
-    ├── app.ts                  # Main entry point of express app
-│── .dockerignore               # Docker ignore file
-│── .env                        # Environment variables
-│── .env.example                # Example environment variables
-│── .gitignore                  # Git ignore file
-│── .prettierrc                 # Prettier configuration
-│── docker-compose.yaml         # Docker Compose file configured for development
-│── Dockerfile                  # Dockerfile for production
-│── Dockerfile.dev              # Dockerfile for development
-│── eslint.config.js            # ESLint configuration
-│── package.json                # Project metadata & dependencies
-│── tsconfig.json               # TypeScript configuration
+    ├── config/                     # Configuration files (e.g., database)
+       	├──db.ts		    # MongoDB connection setup
+       	├──multer.ts	            # Multer setup
+    ├── constants/                  # Constant values
+        ├──cookie-options.ts	    # Cookie options for JWT
+    ├── controllers/                # Route handlers
+       	├──user.ts	            # Example controller
+    ├── helpers/                    # Helper functions
+    ├── middlewares/                # Express middlewares
+       	├──errorHandler.ts	    # Custom error handler
+    ├── models/                     # Mongoose models
+       	├──user.ts	            # Example mongoose model
+    ├── routes/                     # API routes
+       	├──user.ts	            # Example route
+    ├── types/                      # TypeScript types
+       	├──file.d.ts	            # Example FileType definition (reqd for cloudinary)
+    ├── utils/                      # Reusable utilities
+       	├──cloudinary.ts	    # Cloudinary upload and delete controllers
+        ├──generate-token.ts	    # Generate JWT token and set cookie
+       	├──try-catch.ts	            # Try-Catch wrapper for async functions
+    ├── app.ts                      # Main entry point of express app
+│── .dockerignore                   # Docker ignore file
+│── .env                            # Environment variables
+│── .env.example                    # Example environment variables
+│── .gitignore                      # Git ignore file
+│── .prettierrc                     # Prettier configuration
+│── docker-compose.yaml             # Docker-Compose file configured for development
+│── Dockerfile                      # Dockerfile for production
+│── Dockerfile.dev                  # Dockerfile for development
+│── eslint.config.js                # ESLint configuration for code linting
+│── package.json                    # Project metadata & dependencies
+│── tsconfig.json                   # TypeScript configuration
 
 ```
 
