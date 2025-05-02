@@ -64,25 +64,25 @@ Just follow these 3 steps:
 ```sh
 myapp/
 │── src/
-│   ├── config/                 # Configuration files (e.g., database)
+    ├── config/                 # Configuration files (e.g., database)
        	├──db.ts		        # MongoDB connection setup
        	├──multer.ts	        # Multer setup
-│   ├── constants/              # Constant values
-│   ├── controllers/            # Route handlers
+    ├── constants/              # Constant values
+    ├── controllers/            # Route handlers
        	├──user.ts	            # Example controller
-│   ├── helpers/                # Helper functions
-│   ├── middlewares/            # Express middlewares
+    ├── helpers/                # Helper functions
+    ├── middlewares/            # Express middlewares
        	├──errorHandler.ts	    # Custom error handler
-│   ├── models/                 # Mongoose models
+    ├── models/                 # Mongoose models
        	├──user.ts	            # Example mongoose model
-│   ├── routes/                 # API routes
+    ├── routes/                 # API routes
        	├──user.ts	            # Example route
-│   ├── types/                  # TypeScript types
+    ├── types/                  # TypeScript types
        	├──file.d.ts	        # Example FileType definition (reqd for cloudinary)
-│   ├── utils/                  # Reusable utilities
+    ├── utils/                  # Reusable utilities
        	├──cloudinary.ts	    # Cloudinary upload and delete controllers
        	├──try-catch.ts	        # Try-Catch wrapper for async functions
-│   ├── app.ts                  # Main entry point of express app
+    ├── app.ts                  # Main entry point of express app
 │── .dockerignore               # Docker ignore file
 │── .env                        # Environment variables
 │── .env.example                # Example environment variables
