@@ -26,7 +26,9 @@ CMD ["npm", "run", "dev"]`;
 export const dockercomposeContent = (projectName: string, answers: Answers) => `services:
   ${projectName !== "." ? projectName : "backend"}-image:
     container_name: ${projectName !== "." ? projectName : "backend"}-container
-    build: .
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
     ports:
       - ${answers.portNumber}:${answers.portNumber}
     env_file:

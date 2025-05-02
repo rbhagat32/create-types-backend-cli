@@ -2,7 +2,7 @@ export const controllerContent = (answers: Answers) =>
   answers.useErrorHandler
     ? `import type { Request, Response } from "express";
 import { tryCatch } from "@/utils/try-catch.js";
-import ErrorHandler from "@/middlewares/error-handler.js";
+import { ErrorHandler } from "@/middlewares/error-handler.js";
 
 const getUser = tryCatch(async (_req: Request, res: Response) => {
   const user = {

@@ -8,10 +8,10 @@ You can directly run the CLI (using **npx**) or install globally (using **npm in
 
 ```sh
 # Run directly using npx
-npx create-types-backend@latest
+npx create-types-backend
 
 # OR Install globally (optional)
-npm install -g create-types-backend@latest
+npm install -g create-types-backend
 ```
 
 ## 📦 Features
@@ -20,7 +20,7 @@ npm install -g create-types-backend@latest
 ✅ **Supports automatic setup using `-y` flag**  
 ✅ **Includes Express.js, Typescript, DotEnv and essential configurations**  
 ✅ **Sets up tsx for hot-reloading while development**  
-✅ **Resolves import alias to @**
+✅ **Resolves default import alias by mapping src -> @**
 
 ## ⚙️ Optional support for:
 
@@ -38,15 +38,15 @@ npm install -g create-types-backend@latest
 ➡️ Creating a new project
 
 ```sh
-npx create-types-backend@latest : Manual setup with flexibility to choose required configurations.
+npx create-types-backend  : Manual setup with flexibility to choose required configurations.
 
 OR
 
-npx create-types-backend@latest -y : Run in default mode (advanced packages are not configured)
+npx create-types-backend  -y : Run in default mode with all preferences set to 'YES'
 
 OR
 
-npx create-types-backend@latest myapp : Enter project name through CLI argument
+npx create-types-backend  myapp : Enter project name through CLI argument
 ```
 
 ➡️ Starting the Development Server
