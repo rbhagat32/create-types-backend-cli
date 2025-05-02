@@ -64,21 +64,36 @@ Just follow these 3 steps:
 ```sh
 myapp/
 │── src/
-│   ├── config/         # Configuration files (e.g., database)
-       	├──db.ts		# MongoDB connection setup
-│   ├── constants/      # Constant values
-│   ├── controllers/    # Route handlers
-│   ├── helpers/        # Helper functions
-│   ├── middlewares/    # Express middlewares
-│   ├── models/         # Mongoose models
-│   ├── routes/         # API routes
-│   ├── types/          # TypeScript types
-│   ├── utils/          # Reusable utilities
-│   ├── app.ts          # Main server file
-│── .gitignore          # Ignore node_modules and environment files
-│── tsconfig.json       # TypeScript configuration
-│── package.json        # Project metadata & dependencies
-│── .env                # Environment variables (if dotenv is included)
+│   ├── config/                 # Configuration files (e.g., database)
+       	├──db.ts		        # MongoDB connection setup
+       	├──multer.ts	        # Multer setup
+│   ├── constants/              # Constant values
+│   ├── controllers/            # Route handlers
+       	├──user.ts	            # Example controller
+│   ├── helpers/                # Helper functions
+│   ├── middlewares/            # Express middlewares
+       	├──errorHandler.ts	    # Custom error handler
+│   ├── models/                 # Mongoose models
+       	├──user.ts	            # Example mongoose model
+│   ├── routes/                 # API routes
+       	├──user.ts	            # Example route
+│   ├── types/                  # TypeScript types
+       	├──file.d.ts	        # Example FileType definition (reqd for cloudinary)
+│   ├── utils/                  # Reusable utilities
+       	├──cloudinary.ts	    # Cloudinary upload and delete controllers
+       	├──try-catch.ts	        # Try-Catch wrapper for async functions
+│   ├── app.ts                  # Main entry point of express app
+│── .dockerignore               # Docker ignore file
+│── .env                        # Environment variables
+│── .env.example                # Example environment variables
+│── .gitignore                  # Git ignore file
+│── .prettierrc                 # Prettier configuration
+│── docker-compose.yaml         # Docker Compose file configured for development
+│── Dockerfile                  # Dockerfile for production
+│── Dockerfile.dev              # Dockerfile for development
+│── eslint.config.js            # ESLint configuration
+│── package.json                # Project metadata & dependencies
+│── tsconfig.json               # TypeScript configuration
 
 ```
 
