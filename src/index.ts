@@ -12,9 +12,10 @@ import { createPrettierrc } from "@/services/prettierrc.js";
 import { createFolderStructure } from "@/services/folder-structure.js";
 import { createRouter } from "@/services/example-router.js";
 import { createController } from "@/services/example-controller.js";
-import { createAuth } from "./services/auth.js";
+import { createAuth } from "@/services/auth.js";
 import { createErrorHandler } from "@/services/error-handler.js";
 import { createDB } from "@/services/db.js";
+import { createModel } from "@/services/example-model.js";
 import { createMulter } from "@/services/multer.js";
 import { createCloudinary } from "@/services/cloudinary.js";
 import { createESLint } from "@/services/eslint.js";
@@ -68,7 +69,10 @@ async function main() {
   createController(answers);
   if (answers.useAuth) createAuth;
   if (answers.useErrorHandler) createErrorHandler();
-  if (answers.useMongo) createDB();
+  if (answers.useMongo) {
+    createDB();
+    createModel();
+  }
   if (answers.useMulter) createMulter();
   if (answers.useCloudinary) createCloudinary();
   if (answers.useESLint) createESLint();
