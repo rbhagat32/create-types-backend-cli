@@ -71,7 +71,7 @@ async function main() {
   if (answers.useErrorHandler) createErrorHandler();
   if (answers.useMongo) {
     createDB();
-    createModel();
+    createModel(answers);
   }
   if (answers.useMulter) createMulter();
   if (answers.useCloudinary) createCloudinary();
