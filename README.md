@@ -79,7 +79,8 @@ myapp/
     ├── routes/                     # API routes
        	├──user.ts	            # Example route
     ├── types/                      # TypeScript types
-       	├──file.d.ts	            # Example FileType definition (reqd for cloudinary)
+       	├──file.d.ts	            # FileTypes definition (reqd for cloudinary)
+       	├──user.d.ts	            # UserTypes definition (acc to example mongoose schema)
     ├── utils/                      # Reusable utilities
        	├──cloudinary.ts	    # Cloudinary upload and delete controllers
         ├──generate-token.ts	    # Generate JWT token and set cookie
