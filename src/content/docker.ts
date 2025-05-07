@@ -40,5 +40,5 @@ export const dockercomposeContent = (projectName: string, answers: Answers) => `
           target: /app
           ignore: "node_modules"
         - action: rebuild
-          path: package.json
+          path: package*.json
 `;
