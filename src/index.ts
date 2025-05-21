@@ -85,7 +85,7 @@ async function main() {
   if (answers.useGit) {
     execSync("git init", { stdio: "ignore" });
     execSync("git add .", { stdio: "ignore" });
-    execSync("git commit -m 'init: create-types-backend'", { stdio: "ignore" });
+    execSync('git commit -m "init: create-types-backend"', { stdio: "ignore" });
     console.log(chalk.green("Initialized a new git repository"));
   }
 
