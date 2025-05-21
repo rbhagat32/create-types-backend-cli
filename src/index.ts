@@ -22,6 +22,7 @@ import { createESLint } from "@/services/eslint.js";
 import { createDocker } from "@/services/docker.js";
 import { createApp } from "@/services/app.js";
 import { installDependencies, installDevDependencies } from "@/services/install-deps.js";
+import { execSync } from "child_process";
 
 async function main() {
   console.log(chalk.bold.blue("🚀 Welcome to TypeScript-Express Backend CLI !\n"));
@@ -50,6 +51,7 @@ async function main() {
       useCloudinary: true,
       useESLint: true,
       useDocker: true,
+      useGit: false,
     };
   } else {
     // Get user input if not in auto mode
@@ -80,6 +82,12 @@ async function main() {
   createApp(answers);
   installDependencies(answers);
   installDevDependencies(answers);
+  if (answers.useGit) {
+    execSync("git init", { stdio: "ignore" });
+    execSync("git add .", { stdio: "ignore" });
+    execSync("git commit -m 'init: create-types-backend'", { stdio: "ignore" });
+    console.log(chalk.green("Initialized a new git repository"));
+  }
 
   console.log(chalk.green(`🎉 You are good to go ! 🚀\n`));
   console.log(chalk.blue(`➡️  To start the development server, follow these steps:`));

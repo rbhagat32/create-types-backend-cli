@@ -9,4 +9,5 @@ interface Answers {
   useCloudinary: boolean;
   useESLint: boolean;
   useDocker: boolean;
+  useGit: boolean;
 }
