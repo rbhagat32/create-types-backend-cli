@@ -69,7 +69,7 @@ async function main() {
   createFolderStructure();
   createRouter();
   createController(answers);
-  if (answers.useAuth) createAuth;
+  if (answers.useAuth) createAuth();
   if (answers.useErrorHandler) createErrorHandler();
   if (answers.useMongo) {
     createDB();

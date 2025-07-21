@@ -1,4 +1,4 @@
-export const generateTokenContent = `import { Response } from "express";
+export const generateTokenContent = `import type { Response } from "express";
 import jwt from "jsonwebtoken";
 import { cookieOptions } from "@/constants/cookie-options.js";
 

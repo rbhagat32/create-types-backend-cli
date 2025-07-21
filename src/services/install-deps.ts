@@ -4,7 +4,7 @@ import { execSync } from "child_process";
 export const installDependencies = (answers: Answers) => {
   console.log(chalk.green("📥 Installing dependencies..."));
 
-  let dependencies = ["express", "dotenv"];
+  let dependencies = ["express@4", "dotenv"];
 
   if (answers.useCors) dependencies.push("cors");
   if (answers.useMongo) dependencies.push("mongoose");
