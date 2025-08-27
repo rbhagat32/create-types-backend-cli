@@ -65,7 +65,7 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
     },
     {
       name: "useGit",
-      message: "Initialize an empty Git Repository?",
+      message: "Initialize Git Repository?",
       type: "confirm",
       default: false,
     },
