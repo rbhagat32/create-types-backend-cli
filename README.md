@@ -65,24 +65,24 @@ Just follow these 3 steps:
 myapp/
 │── src/
     ├── config/                     # Configuration files (e.g., database)
-       	├──db.ts		    # MongoDB connection setup
+       	├──db.ts		            # MongoDB connection setup
        	├──multer.ts	            # Multer setup
     ├── constants/                  # Constant values
         ├──cookie-options.ts	    # Cookie options for JWT
     ├── controllers/                # Route handlers
-       	├──user.ts	            # Example controller
+       	├──user.ts	                # Example controller
     ├── helpers/                    # Helper functions
     ├── middlewares/                # Express middlewares
-       	├──errorHandler.ts	    # Custom error handler
+       	├──errorHandler.ts	        # Custom error handler
     ├── models/                     # Mongoose models
-       	├──user.ts	            # Example mongoose model
+       	├──user.ts	                # Example mongoose model
     ├── routes/                     # API routes
-       	├──user.ts	            # Example route
+       	├──user.ts	                # Example route
     ├── types/                      # TypeScript types
        	├──file.d.ts	            # FileTypes definition (reqd for cloudinary)
        	├──user.d.ts	            # UserTypes definition (acc to example mongoose schema)
     ├── utils/                      # Reusable utilities
-       	├──cloudinary.ts	    # Cloudinary upload and delete controllers
+       	├──cloudinary.ts	        # Cloudinary upload and delete controllers
         ├──generate-token.ts	    # Generate JWT token and set cookie
        	├──try-catch.ts	            # Try-Catch wrapper for async functions
     ├── app.ts                      # Main entry point of express app
