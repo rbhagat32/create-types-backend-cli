@@ -1,17 +1,27 @@
-export const dockerIgnoreContent = `node_modules
+export const dockerIgnoreContent = `Dockerfile
+.dockerignore
+node_modules
 dist
 .env
 .env.example
 .gitignore
 .git
+.prettierrc
 .vscode`;
 
-export const dockerfileContent = (answers: Answers) => `FROM node
+export const dockerfileContent = (answers: Answers) => `FROM node:20 AS builder
 WORKDIR /app
-COPY package* .
+COPY package*.json .
 RUN npm install
 COPY . .
 RUN npm run build
+
+FROM node:20-slim AS runner
+WORKDIR /app
+COPY package*.json .
+RUN npm install --production
+COPY --from=builder /app/dist ./dist
+
 EXPOSE ${answers.portNumber}
 CMD ["npm", "start"]`;
 
