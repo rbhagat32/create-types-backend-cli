@@ -8,7 +8,7 @@ You can directly run the CLI (using **npx**) or install globally (using **npm in
 
 ```sh
 # Run directly using npx
-npx create-types-backend
+npx create-types-backend@latest
 
 # OR Install globally (optional)
 npm install -g create-types-backend
@@ -24,14 +24,16 @@ npm install -g create-types-backend
 
 ## ⚙️ Optional support for:
 
-    - Custom Error Handlers
+    - Custom Error Handler + Try-Catch Wrapper
     - CORS
-    - MongoDB
+    - MongoDB (with Mongoose)
     - JWT, bcrypt, cookie-parser
     - Multer
     - Cloudinary
     - ES-Lint
-    - Docker
+    - Prettier
+    - Docker (with separate Development and Production configurations)
+    - Git
 
 ## 🚀 Usage
 
@@ -42,7 +44,7 @@ npx create-types-backend  : Manual setup with flexibility to choose required con
 
 OR
 
-npx create-types-backend  -y : Run in default mode with all preferences set to 'YES'
+npx create-types-backend  -y : Run in default mode with all preferences set to 'DEFAULT' values.
 
 OR
 
@@ -80,7 +82,7 @@ myapp/
        	├──user.ts	                # Example route
     ├── types/                      # TypeScript types
        	├──file.d.ts	            # FileTypes definition (reqd for cloudinary)
-       	├──user.d.ts	            # UserTypes definition (acc to example mongoose schema)
+       	├──user.d.ts	            # UserTypes definition (acc. to example mongoose schema)
     ├── utils/                      # Reusable utilities
        	├──cloudinary.ts	        # Cloudinary upload and delete controllers
         ├──generate-token.ts	    # Generate JWT token and set cookie
@@ -91,9 +93,10 @@ myapp/
 │── .env.example                    # Example environment variables
 │── .gitignore                      # Git ignore file
 │── .prettierrc                     # Prettier configuration
-│── docker-compose.yaml             # Docker-Compose file configured for development
-│── Dockerfile                      # Dockerfile for production
-│── Dockerfile.dev                  # Dockerfile for development
+│── Dockerfile.dev                  # Dockerfile for Development
+│── Dockerfile.prod                 # Dockerfile for Production
+│── compose.dev.yaml                # Docker Compose file configured for Development
+│── compose.prod.yaml               # Docker Compose file configured for Production
 │── eslint.config.js                # ESLint configuration for code linting
 │── package.json                    # Project metadata & dependencies
 │── tsconfig.json                   # TypeScript configuration
