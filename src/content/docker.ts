@@ -1,6 +1,8 @@
-export const dockerIgnoreContent = `Dockerfile
+export const dockerIgnoreContent = `Dockerfile.dev
+Dockerfile.prod
+compose.dev.yaml
+compose.prod.yaml
 .dockerignore
-compose.yaml
 node_modules
 dist
 .env
@@ -10,17 +12,17 @@ dist
 .prettierrc
 .vscode`;
 
-export const dockerfileContent = (answers: Answers) => `FROM node:20-alpine AS builder
+export const dockerfileProdContent = (answers: Answers) => `FROM node:20-alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN npm install --loglevel=error
 COPY . ./
 RUN npm run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --production
+RUN npm install --omit=dev --loglevel=error
 COPY --from=builder /app/dist ./dist
 
 EXPOSE ${answers.portNumber}
@@ -34,9 +36,21 @@ COPY . ./
 EXPOSE ${answers.portNumber}
 CMD ["npm", "run", "dev"]`;
 
-export const dockercomposeContent = (projectName: string, answers: Answers) => `services:
-  ${projectName !== "." ? projectName : "backend"}-image:
-    container_name: ${projectName !== "." ? projectName : "backend"}-container
+export const dockercomposeProdContent = (projectName: string, answers: Answers) => `services:
+  ${projectName !== "." ? projectName : "backend"}-image-prod:
+    container_name: ${projectName !== "." ? projectName : "backend"}-container-prod
+    build:
+      context: ./
+      dockerfile: Dockerfile.prod
+    ports:
+      - ${answers.portNumber}:${answers.portNumber}
+    env_file:
+      - .env
+`;
+
+export const dockercomposeDevContent = (projectName: string, answers: Answers) => `services:
+  ${projectName !== "." ? projectName : "backend"}-image-dev:
+    container_name: ${projectName !== "." ? projectName : "backend"}-container-dev
     build:
       context: ./
       dockerfile: Dockerfile.dev

@@ -10,9 +10,17 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
     "build": "${answers.useESLint ? "npm run lint && " : ""}tsc && tsc-alias",
     "dev": "nodemon"${!answers.useESLint && !answers.useDocker ? "" : ","}
     ${answers.useESLint ? `"lint": "eslint src"${answers.useDocker ? "," : ""}` : ""}
-    ${answers.useDocker ? '"up": "docker compose up -d --build && docker compose watch",' : ""}
-    ${answers.useDocker ? '"down": "docker compose down",' : ""}
-    ${answers.useDocker ? '"logs": "docker compose logs -f"' : ""}
+    ${
+      answers.useDocker ? '"docker:prod": "docker compose -f compose.prod.yaml up -d --build",' : ""
+    }
+    ${
+      answers.useDocker
+        ? '"docker:dev": "docker compose -f compose.dev.yaml up -d --build && docker compose -f compose.dev.yaml watch",'
+        : ""
+    }
+    ${answers.useDocker ? '"docker-down:prod": "docker compose -f compose.prod.yaml down",' : ""}
+    ${answers.useDocker ? '"docker-down:dev": "docker compose -f compose.dev.yaml down",' : ""}
+    ${answers.useDocker ? '"docker:logs": "docker compose logs -f"' : ""}
   },
   "keywords": [],
   "author": "",

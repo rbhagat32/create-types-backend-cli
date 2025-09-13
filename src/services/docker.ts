@@ -1,14 +1,16 @@
 import fs from "fs";
 import {
   dockerIgnoreContent,
-  dockerfileContent,
+  dockerfileProdContent,
   dockerfileDevContent,
-  dockercomposeContent,
+  dockercomposeDevContent,
+  dockercomposeProdContent,
 } from "@/content/docker.js";
 
 export const createDocker = (projectName: string, answers: Answers) => {
   fs.writeFileSync(".dockerignore", dockerIgnoreContent);
-  fs.writeFileSync("Dockerfile", dockerfileContent(answers));
   fs.writeFileSync("Dockerfile.dev", dockerfileDevContent(answers));
-  fs.writeFileSync("compose.yaml", dockercomposeContent(projectName, answers));
+  fs.writeFileSync("Dockerfile.prod", dockerfileProdContent(answers));
+  fs.writeFileSync("compose.dev.yaml", dockercomposeDevContent(projectName, answers));
+  fs.writeFileSync("compose.prod.yaml", dockercomposeProdContent(projectName, answers));
 };
