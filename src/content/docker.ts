@@ -29,7 +29,7 @@ CMD ["npm", "start"]`;
 export const dockerfileDevContent = (answers: Answers) => `FROM node:20-alpine
 WORKDIR /app
 COPY package* ./
-RUN npm install
+RUN npm install --loglevel=error
 COPY . ./
 EXPOSE ${answers.portNumber}
 CMD ["npm", "run", "dev"]`;
