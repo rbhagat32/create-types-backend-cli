@@ -61,7 +61,7 @@ export const questions = async (projectNameArg: string): Promise<Answers> =>
       name: "useDocker",
       message: "Setup Docker for containerization?",
       type: "confirm",
-      default: false,
+      default: true,
     },
     {
       name: "useGit",
