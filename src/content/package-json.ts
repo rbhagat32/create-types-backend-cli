@@ -11,7 +11,8 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
     "dev": "nodemon"${!answers.useESLint && !answers.useDocker ? "" : ","}
     ${answers.useESLint ? `"lint": "eslint src"${answers.useDocker ? "," : ""}` : ""}
     ${answers.useDocker ? '"up": "docker compose up -d --build && docker compose watch",' : ""}
-    ${answers.useDocker ? '"down": "docker compose down"' : ""}
+    ${answers.useDocker ? '"down": "docker compose down",' : ""}
+    ${answers.useDocker ? '"logs": "docker compose logs -f"' : ""}
   },
   "keywords": [],
   "author": "",
