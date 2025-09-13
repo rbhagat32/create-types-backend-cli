@@ -19,8 +19,7 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
         : ""
     }
     ${answers.useDocker ? '"docker-down:prod": "docker compose -f compose.prod.yaml down",' : ""}
-    ${answers.useDocker ? '"docker-down:dev": "docker compose -f compose.dev.yaml down",' : ""}
-    ${answers.useDocker ? '"docker:logs": "docker compose logs -f"' : ""}
+    ${answers.useDocker ? '"docker-down:dev": "docker compose -f compose.dev.yaml down"' : ""}
   },
   "keywords": [],
   "author": "",

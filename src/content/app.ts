@@ -6,13 +6,17 @@ ${answers.useCors ? 'import cors from "cors";' : ""}
 ${answers.useAuth ? 'import cookieParser from "cookie-parser";' : ""}
 ${answers.useMongo ? 'import { connectDB } from "@/config/db.js";' : ""}
 ${answers.useCloudinary ? 'import { v2 as cloudinary } from "cloudinary";' : ""}
-import { userRouter } from "@/routes/user.js";
-${answers.useErrorHandler ? 'import { errorHandler } from "@/middlewares/error-handler.js";' : ""}
+import { UserRouter } from "@/routes/user.js";
+${
+  answers.useErrorHandler
+    ? 'import { ErrorHandlerMiddleware } from "@/middlewares/error-handler.js";'
+    : ""
+}
 
 const app = express();
 
 // setup
-dotenv.config({ path: ".env", quiet: true });
+dotenv.config({ path: ".env" });
 ${answers.useMongo ? "connectDB();" : ""}
 ${
   answers.useCors
@@ -46,12 +50,12 @@ app.get("/", (_req: Request, res: Response) => {
 });
 
 // => ADD YOUR ROUTES HERE <=
-app.use("/api/user", userRouter);
+app.use("/api/user", UserRouter);
 
 ${
   answers.useErrorHandler
     ? `// custom error handler
-app.use(errorHandler);`
+app.use(ErrorHandlerMiddleware);`
     : ""
 }
 

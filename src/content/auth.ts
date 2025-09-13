@@ -1,6 +1,6 @@
 export const generateTokenContent = `import type { Response } from "express";
 import jwt from "jsonwebtoken";
-import { cookieOptions } from "@/constants/cookie-options.js";
+import { CookieOptions } from "@/constants/cookie-options.js";
 
 interface User {
   _id: string;
@@ -11,7 +11,7 @@ const generateToken = (res: Response, user: User) => {
     expiresIn: "15d",
   });
 
-  res.cookie("token", token, cookieOptions);
+  res.cookie("token", token, CookieOptions);
 };
 
 export { generateToken };`;
@@ -23,7 +23,7 @@ export const cookieOptionsContent = `interface CookieOptionsTypes {
   expires: Date;
 }
 
-export const cookieOptions: CookieOptionsTypes = {
+export const CookieOptions: CookieOptionsTypes = {
   httpOnly: true,
   secure: true,
   sameSite: "none",

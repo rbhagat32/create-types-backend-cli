@@ -1,7 +1,7 @@
 export const nodemonContent = `{
   "watch": ["src"],
   "ext": "ts,js,json",
-  "ignore": "dist", "node_modules"],
+  "ignore": ["dist", "node_modules"],
   "exec": "tsx watch src/app.ts",
   "legacyWatch": true
 }`;

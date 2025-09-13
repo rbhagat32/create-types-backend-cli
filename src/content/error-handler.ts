@@ -7,7 +7,7 @@ export class ErrorHandler extends Error {
   }
 }
 
-export const errorHandler = (
+export const ErrorHandlerMiddleware = (
   err: ErrorHandler,
   _req: Request,
   res: Response,
@@ -30,7 +30,7 @@ type ControllerTypes = (
   next: NextFunction
 ) => Promise<void | Response<unknown, Record<string, unknown>>>;
 
-export const tryCatch = (controller: ControllerTypes) => {
+export const TryCatch = (controller: ControllerTypes) => {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
       await controller(req, res, next);

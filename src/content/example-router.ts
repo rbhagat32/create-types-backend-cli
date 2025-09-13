@@ -5,5 +5,5 @@ const router = express.Router();
 
 router.get("/get-user", getUser);
 
-export { router as userRouter };
+export { router as UserRouter };
 `;
