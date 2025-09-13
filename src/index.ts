@@ -9,6 +9,7 @@ import { createTsConfig } from "@/services/ts-config.js";
 import { createGitIgnore } from "@/services/git-ignore.js";
 import { createDotenv } from "@/services/dotenv.js";
 import { createPrettierrc } from "@/services/prettierrc.js";
+import { createNodemon } from "@/services/nodemon.js";
 import { createFolderStructure } from "@/services/folder-structure.js";
 import { createRouter } from "@/services/example-router.js";
 import { createController } from "@/services/example-controller.js";
@@ -66,6 +67,7 @@ async function main() {
   createGitIgnore();
   createDotenv(answers);
   createPrettierrc();
+  createNodemon();
   createFolderStructure();
   createRouter();
   createController(answers);

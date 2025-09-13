@@ -12,7 +12,7 @@ ${answers.useErrorHandler ? 'import { errorHandler } from "@/middlewares/error-h
 const app = express();
 
 // setup
-dotenv.config({ path: ".env" });
+dotenv.config({ path: ".env", quiet: true });
 ${answers.useMongo ? "connectDB();" : ""}
 ${
   answers.useCors

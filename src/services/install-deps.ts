@@ -18,7 +18,14 @@ export const installDependencies = (answers: Answers) => {
 export const installDevDependencies = (answers: Answers) => {
   console.log(chalk.green("🛠️  Installing dev dependencies..."));
 
-  let devDependencies = ["@types/node", "@types/express@4", "typescript", "tsc-alias", "tsx"];
+  let devDependencies = [
+    "@types/node",
+    "@types/express@4",
+    "typescript",
+    "tsc-alias",
+    "tsx",
+    "nodemon",
+  ];
 
   if (answers.useCors) devDependencies.push("@types/cors");
   if (answers.useMongo) devDependencies.push("@types/mongoose");

@@ -1,5 +1,6 @@
 export const dockerIgnoreContent = `Dockerfile
 .dockerignore
+compose.yaml
 node_modules
 dist
 .env
@@ -9,27 +10,27 @@ dist
 .prettierrc
 .vscode`;
 
-export const dockerfileContent = (answers: Answers) => `FROM node:20 AS builder
+export const dockerfileContent = (answers: Answers) => `FROM node:20-alpine AS builder
 WORKDIR /app
-COPY package*.json .
+COPY package*.json ./
 RUN npm install
-COPY . .
+COPY . ./
 RUN npm run build
 
 FROM node:20-alpine AS runner
 WORKDIR /app
-COPY package*.json .
+COPY package*.json ./
 RUN npm install --production
 COPY --from=builder /app/dist ./dist
 
 EXPOSE ${answers.portNumber}
 CMD ["npm", "start"]`;
 
-export const dockerfileDevContent = (answers: Answers) => `FROM node
+export const dockerfileDevContent = (answers: Answers) => `FROM node:20-alpine
 WORKDIR /app
-COPY package* .
+COPY package* ./
 RUN npm install
-COPY . .
+COPY . ./
 EXPOSE ${answers.portNumber}
 CMD ["npm", "run", "dev"]`;
 
