@@ -1,28 +1,43 @@
-export const dockerIgnoreContent = `Dockerfile.dev
-Dockerfile.prod
-compose.dev.yaml
-compose.prod.yaml
-.dockerignore
+export const dockerIgnoreContent = `# Dependency directories
 node_modules
 dist
-.env
-.env.example
-.gitignore
-.git
-.prettierrc
-.vscode`;
 
-export const dockerfileProdContent = (answers: Answers) => `FROM node:20-alpine AS builder
+# Environment files
+.env
+.env.*
+
+# Git & IDE
+.git
+.gitignore
+.vscode
+
+# Docker configs
+Dockerfile*
+compose.*.yaml
+docker-compose*.yaml
+
+# Misc
+*.log`;
+
+export const dockerfileProdContent = (answers: Answers) => `# Stage 1: Build
+FROM node:20-alpine AS builder
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm install --loglevel=error
+
 COPY . ./
 RUN npm run build
 
+RUN npm prune --omit=dev
+
+
+# Stage 2: Run
 FROM node:20-alpine AS runner
 WORKDIR /app
-COPY package*.json ./
-RUN npm install --omit=dev --loglevel=error
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/dist ./dist
 
 EXPOSE ${answers.portNumber}
