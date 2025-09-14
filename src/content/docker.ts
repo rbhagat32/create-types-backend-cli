@@ -45,9 +45,12 @@ CMD ["npm", "start"]`;
 
 export const dockerfileDevContent = (answers: Answers) => `FROM node:20-alpine
 WORKDIR /app
+
 COPY package* ./
 RUN npm install --loglevel=error
+
 COPY . ./
+
 EXPOSE ${answers.portNumber}
 CMD ["npm", "run", "dev"]`;
 
@@ -78,7 +81,8 @@ export const dockercomposeDevContent = (projectName: string, answers: Answers) =
         - action: sync
           path: .
           target: /app
-          ignore: "node_modules"
+          ignore:
+            - node_modules/
         - action: rebuild
-          path: package*.json
+          path: package.json
 `;
