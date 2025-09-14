@@ -54,9 +54,9 @@ COPY . ./
 EXPOSE ${answers.portNumber}
 CMD ["npm", "run", "dev"]`;
 
-export const dockercomposeProdContent = (projectName: string, answers: Answers) => `services:
-  ${projectName !== "." ? projectName : "backend"}-image-prod:
-    container_name: ${projectName !== "." ? projectName : "backend"}-container-prod
+export const dockercomposeProdContent = (answers: Answers) => `services:
+  backend-image:
+    container_name: backend-container
     build:
       context: ./
       dockerfile: Dockerfile.prod
@@ -66,9 +66,9 @@ export const dockercomposeProdContent = (projectName: string, answers: Answers) 
       - .env
 `;
 
-export const dockercomposeDevContent = (projectName: string, answers: Answers) => `services:
-  ${projectName !== "." ? projectName : "backend"}-image-dev:
-    container_name: ${projectName !== "." ? projectName : "backend"}-container-dev
+export const dockercomposeDevContent = (answers: Answers) => `services:
+  backend-image:
+    container_name: backend-container
     build:
       context: ./
       dockerfile: Dockerfile.dev

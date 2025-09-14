@@ -80,7 +80,7 @@ async function main() {
   if (answers.useMulter) createMulter();
   if (answers.useCloudinary) createCloudinary();
   if (answers.useESLint) createESLint();
-  if (answers.useDocker) createDocker(projectName, answers);
+  if (answers.useDocker) createDocker(answers);
   createApp(answers);
   installDependencies(answers);
   installDevDependencies(answers);
