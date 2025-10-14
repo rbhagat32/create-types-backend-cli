@@ -8,7 +8,8 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
   "scripts": {
     "start": "node dist/app.js",
     "build": "${answers.useESLint ? "npm run lint && " : ""}tsc && tsc-alias",
-    "dev": "nodemon"${!answers.useESLint && !answers.useDocker ? "" : ","}
+    "dev": "nodemon",
+    "format": "npx prettier --write ."${!answers.useESLint && !answers.useDocker ? "" : ","}
     ${answers.useESLint ? `"lint": "eslint src"${answers.useDocker ? "," : ""}` : ""}
     ${
       answers.useDocker
