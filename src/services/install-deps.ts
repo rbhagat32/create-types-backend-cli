@@ -25,6 +25,7 @@ export const installDevDependencies = (answers: Answers) => {
     "tsc-alias",
     "tsx",
     "nodemon",
+    "prettier",
   ];
 
   if (answers.useCors) devDependencies.push("@types/cors");
