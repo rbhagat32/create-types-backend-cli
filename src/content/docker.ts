@@ -10,11 +10,13 @@ dist
 .git
 .gitignore
 .vscode
+readme.md
+.prettierrc
 
 # Docker configs
 Dockerfile*
 compose.*.yaml
-docker-compose*.yaml
+docker-compose.*.yaml
 
 # Misc
 *.log`;
@@ -46,7 +48,7 @@ CMD ["npm", "start"]`;
 export const dockerfileDevContent = (answers: Answers) => `FROM node:20-alpine
 WORKDIR /app
 
-COPY package* ./
+COPY package*.json ./
 RUN npm install --loglevel=error
 
 COPY . ./
@@ -61,7 +63,7 @@ export const dockercomposeProdContent = (answers: Answers) => `services:
       context: ./
       dockerfile: Dockerfile.prod
     ports:
-      - ${answers.portNumber}:${answers.portNumber}
+      - "${answers.portNumber}:${answers.portNumber}"
     env_file:
       - .env
 `;
@@ -73,7 +75,7 @@ export const dockercomposeDevContent = (answers: Answers) => `services:
       context: ./
       dockerfile: Dockerfile.dev
     ports:
-      - ${answers.portNumber}:${answers.portNumber}
+      - "${answers.portNumber}:${answers.portNumber}"
     env_file:
       - .env
     develop:

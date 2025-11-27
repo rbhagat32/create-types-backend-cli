@@ -19,12 +19,12 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
     ${answers.useDocker ? '"docker-up:dev": "docker compose -f compose.dev.yaml up --watch",' : ""}
     ${
       answers.useDocker
-        ? '"docker-down:prod": "docker compose -f compose.prod.yaml down --rmi local --remove-orphans  && docker image prune -f",'
+        ? '"docker-down:prod": "docker compose -f compose.prod.yaml down --rmi local --remove-orphans && docker image prune -f",'
         : ""
     }
     ${
       answers.useDocker
-        ? '"docker-down:dev": "docker compose -f compose.dev.yaml down --rmi local --remove-orphans  && docker image prune -f"'
+        ? '"docker-down:dev": "docker compose -f compose.dev.yaml down --rmi local --remove-orphans && docker image prune -f"'
         : ""
     }
   },
