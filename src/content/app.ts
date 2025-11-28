@@ -1,7 +1,7 @@
 export const appContent = (
   answers: Answers
 ) => `import express, { type Request, type Response } from "express";
-import dotenv from "dotenv";
+import { configDotenv } from "dotenv";
 ${answers.useCors ? 'import cors from "cors";' : ""}
 ${answers.useAuth ? 'import cookieParser from "cookie-parser";' : ""}
 ${answers.useMongo ? 'import { connectDB } from "@/config/db.js";' : ""}
@@ -16,7 +16,7 @@ ${
 const app = express();
 
 // setup
-dotenv.config({ path: ".env" });
+configDotenv({ path: ".env", quiet: true });
 ${answers.useMongo ? "connectDB();" : ""}
 ${
   answers.useCors
