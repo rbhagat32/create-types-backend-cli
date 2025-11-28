@@ -2,10 +2,6 @@ export const dockerIgnoreContent = `# Dependency directories
 node_modules
 dist
 
-# Environment files
-.env
-.env.*
-
 # Git & IDE
 .git
 .gitignore
@@ -87,4 +83,6 @@ export const dockercomposeDevContent = (answers: Answers) => `services:
             - node_modules/
         - action: rebuild
           path: package.json
+        - action: rebuild
+          path: .env
 `;
