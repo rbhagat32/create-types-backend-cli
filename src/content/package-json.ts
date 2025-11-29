@@ -2,7 +2,7 @@ export const packageJsonContent = (projectName: string, answers: Answers) => `{
   "name": "${projectName === "." ? "backend" : projectName}",
   "version": "1.0.0",
   "private": true,
-  "description": "This app was created using npx create-types-backend@latest",
+  "description": "This app was created using \`npx create-types-backend\`",
   "type": "module",
   "main": "dist/app.js",
   "scripts": {
