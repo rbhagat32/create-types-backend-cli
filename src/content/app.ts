@@ -46,7 +46,7 @@ ${answers.useAuth ? "app.use(cookieParser());" : ""}
 
 // routes
 app.get("/", (_req: Request, res: Response) => {
-  res.status(200).send("This app was created using npx create-types-backend@latest !");
+  res.status(200).send("This app was created using \`npx create-types-backend\`");
 });
 
 // => ADD YOUR ROUTES HERE <=

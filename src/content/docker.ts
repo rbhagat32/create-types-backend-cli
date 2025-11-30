@@ -57,7 +57,7 @@ export const dockercomposeProdContent = (answers: Answers) => `services:
     container_name: backend-container
     build:
       context: ./
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile
     ports:
       - "${answers.portNumber}:${answers.portNumber}"
     env_file:

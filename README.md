@@ -94,7 +94,7 @@ myapp/
 │── .gitignore                      # Git ignore file
 │── .prettierrc                     # Prettier configuration
 │── Dockerfile.dev                  # Dockerfile for Development
-│── Dockerfile.prod                 # Dockerfile for Production
+│── Dockerfile                      # Dockerfile for Production
 │── compose.dev.yaml                # Docker Compose file configured for Development
 │── compose.prod.yaml               # Docker Compose file configured for Production
 │── eslint.config.js                # ESLint configuration for code linting
